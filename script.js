@@ -16,8 +16,6 @@ function displayWeatherData(weatherData){
     const isDarkMode = weatherData.current.is_day;
     main.replaceChildren();
     main.appendChild(createCurrentWeatherSection(weatherData.current, weatherData.current_units));
-
-
     main.appendChild(createForecastWeatherSection(weatherData.hourly, weatherData.hourly_units));
     if (isDarkMode) body.classList.add("dark");
 }
