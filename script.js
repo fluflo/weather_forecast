@@ -1,5 +1,6 @@
 const main = document.querySelector("main");
 const body = document.querySelector("body");
+
 function fetchWeatherData(){
     main.replaceChildren(createLoadingScreen());
     setTimeout(() => {
@@ -10,6 +11,10 @@ function fetchWeatherData(){
     
 }
 
+function changeMode(){
+    body.classList.toggle("dark");
+}
+
 function createLoadingScreen(){
     const loadingScreen = document.createElement("div");
     loadingScreen.classList.add("lds-dual-ring");
@@ -17,7 +22,7 @@ function createLoadingScreen(){
 }
 
 function displayWeatherData(weatherData){
-    const isDarkMode = !weatherData.current.is_day;
+    const isDarkMode = weatherData.current.is_day;
     main.replaceChildren();
     main.appendChild(createCurrentWeatherSection(weatherData.current, weatherData.current_units));
     main.appendChild(createForecastWeatherSection(weatherData.hourly, weatherData.hourly_units));

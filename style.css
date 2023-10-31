@@ -21,6 +21,7 @@ header {
     display: flex;
     justify-content: end;
     padding: 20px;
+    gap: 1em;
 }
 
 main {
