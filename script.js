@@ -65,9 +65,9 @@ function createDailyForecastWeaterSection(forecast, units){
     const hourlySection = document.createElement("section");
     hourlySection.classList.add("hourlyForecast");
     hourlySection.appendChild(createForecastTime(forecast.time));
+    hourlySection.appendChild(createWeatherIcon(forecast.weathercode, isDayTime(forecast.time)))
     hourlySection.appendChild(createCurrentTemperature(forecast.temperature_2m, units.temperature_2m));
     hourlySection.appendChild(createApparentTemperature(forecast.apparent_temperature, units.apparent_temperature))
-    hourlySection.appendChild(createWeatherIcon(forecast.weathercode, isDayTime(forecast.time)))
     return hourlySection
 }
 
