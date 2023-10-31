@@ -15,6 +15,14 @@ function changeMode(){
     body.classList.toggle("dark");
 }
 
+function refresh(button){
+    button.classList.add("loading")
+    setTimeout(() => {
+        button.classList.remove("loading");
+    }, 700);
+    fetchWeatherData();
+}
+
 function createLoadingScreen(){
     const loadingScreen = document.createElement("div");
     loadingScreen.classList.add("lds-dual-ring");
