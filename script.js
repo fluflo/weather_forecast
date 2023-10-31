@@ -1,15 +1,19 @@
 const main = document.querySelector("main");
 const body = document.querySelector("body");
 function fetchWeatherData(){
-    const loadingScreen = document.createElement("div");
-    loadingScreen.classList.add("lds-dual-ring");
-    main.replaceChildren(loadingScreen);
+    main.replaceChildren(createLoadingScreen());
     setTimeout(() => {
         fetch("https://api.open-meteo.com/v1/forecast?latitude=46.516&longitude=6.6328&current=temperature_2m,apparent_temperature,is_day,precipitation,rain,weathercode,windspeed_10m&hourly=temperature_2m,apparent_temperature,weathercode&forecast_days=3")
             .then(response => response.json())
             .then(displayWeatherData)
     }, 1000);
     
+}
+
+function createLoadingScreen(){
+    const loadingScreen = document.createElement("div");
+    loadingScreen.classList.add("lds-dual-ring");
+    return loadingScreen;
 }
 
 function displayWeatherData(weatherData){
